@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Menu Berita</title>
+    <link rel="icon" href="/img/logoW.png" />
+    <link rel="stylesheet" href="/css/style1.css" />
+  </head>
+  <body>
+    {{>header}}
+
+    <div class="main-content">
+        <div class="berita-list">
+            {{#each berita}}
+            <div class="berita-item">
+                <h3>{{title}}</h3>
+                <img class = "image-berita" src="{{image}}"/>
+                <p>{{description}}</p>
+                <center><a href="{{url}}" target="_blank">Baca Selengkapnya</a></center>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    </p>
+    <p> Created by Wulan Ainiyyah Puteri <strong>{{nama}}</strong></p>
+
+</body>
+</html>

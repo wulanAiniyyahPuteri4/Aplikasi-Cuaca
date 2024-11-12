@@ -6,6 +6,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/prediksiCuaca');
+const axios = require("axios");
 
 // Set view engine
 app.set('view engine', 'hbs');
@@ -53,10 +54,39 @@ app.get('/infocuaca', (req, res) => {
 // Rute untuk halaman tentang
 app.get('/tentang', (req, res) => {
     res.render('tentang', {
-        judul: 'Who Am I?',
+        judul: 'BIODATA ',
         nama: 'Wulan Ainiyyah Puteri'
     });
 });
+
+//Halaman Berita
+app.get("/berita", async (req, res) => {
+    try {
+      const urlApiMediaStack = "https://api.mediastack.com/v1/news";
+      const apiKey = "ff6a770e730fcd7e4cf07842d0a0253b";
+  
+      const params = {
+        access_key: apiKey,
+        countries: "id",
+      };
+  
+      const response = await axios.get(urlApiMediaStack, { params });
+      const dataBerita = response.data;
+  
+      res.render("berita", {
+        name: "Wulan Ainiyyah Puteri",
+        title: "News Update",
+        berita: dataBerita.data,
+      });
+    } catch (error) {
+      console.error(error);
+      res.render("error", {
+        title: "Terjadi Kesalahan",
+        pesanKesalahan: "Terjadi kesalahan saat mengambil berita.",
+      });
+    }
+  });
+  
 
 // Rute untuk halaman bantuan
 app.get('/bantuan', (req, res) => {
@@ -65,12 +95,15 @@ app.get('/bantuan', (req, res) => {
     });
 });
 
+
+
 // Rute untuk halaman penjelasan
 app.get('/penjelasan', (req, res) => {
     res.render('penjelasan', {
         judul: 'Penjelasan Aplikasi Cek Cuaca'
     });
 });
+
 
 // Wildcard route untuk halaman tidak ditemukan
 app.get('*', (req, res) => {

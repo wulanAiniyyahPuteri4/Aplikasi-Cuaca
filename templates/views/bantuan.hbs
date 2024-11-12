@@ -27,8 +27,37 @@
                  mulai dari perusahaan besar, usaha kecil, pengembang, pekerja lepas, hingga individu. 
                  Berkat kemudahan integrasinya dan keandalan data yang disajikan, Weatherstack kini telah menjadi salah satu penyedia API cuaca berbasis REST yang paling diminati di pasar.
             </p>
+            </p>
+            <h2>Apa itu API</h2>
+            <p>
+                API (Application Programming Interface) adalah antarmuka yang memungkinkan komunikasi antara aplikasi atau komponen perangkat lunak yang berbeda. 
+                Dengan API, aplikasi atau layanan dapat saling bertukar data dan fungsi, membuat proses integrasi lebih mudah dan cepat. 
+                API memanfaatkan protokol tertentu sehingga developer bisa menghubungkan fitur atau layanan dari satu aplikasi ke aplikasi lain dengan lebih efisien,membantu menyederhanakan pengembangan perangkat lunak.
+            </p>
+
+            <h2>Salah satu pola arsitektur API : GraphQL</h2>
+            <div class="image-container">
+                <img src="/img/Graph.png" width="500px">
+            </div>
+            <p>
+                GraphQL adalah bahasa query dan platform runtime untuk antarmuka pemrograman aplikasi (API). 
+                Dengan GraphQL, klien dapat meminta data yang tepat sesuai kebutuhan, 
+                menggabungkan beberapa permintaan dalam satu query, dan mengakses data dari berbagai sumber dalam satu kali permintaan. 
+                Dibandingkan dengan RESTful dan gRPC, GraphQL menawarkan keseimbangan antara fungsionalitas dan kompleksitas
+            </p>
+            <p>
+                Keuntungan utama GraphQL adalah fleksibilitas dalam mengambil hanya data yang dibutuhkan, 
+                serta kemampuan untuk menggabungkan beberapa permintaan dalam satu query, mengurangi jumlah permintaan ke server. 
+                Namun, fleksibilitas ini membuat caching lebih sulit diterapkan, karena setiap query bisa berbeda. 
+                GraphQL juga mungkin terlalu kompleks untuk aplikasi sederhana yang hanya membutuhkan akses ke data dasar, 
+                di mana pendekatan seperti RESTful API lebih efisien.
+            </p>
         </div>
-        {{>footer}} 
+
+        </div>
+        <p> Created by Wulan Ainiyyah Puteri<strong>{{nama}}</strong></p>
+        
+
     </body> 
 
 <footer>

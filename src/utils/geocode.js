@@ -1,9 +1,9 @@
 const request = require('postman-request');
 
 const geocode = (address, callback) => {
-    const url = 'http://api.positionstack.com/v1/forward?access_key=47bcc9e2045002bd4b038d5bdd4ff67b&query=' + 
+    const url = 'http://api.positionstack.com/v1/forward?access_key=47bcc9e2045002bd4b038d5bdd4ff67b&query=' +
         encodeURIComponent(address);
-        
+
     request({ url: url, json: true }, (error, response) => {
         if (error) {
             callback('Tidak dapat terkoneksi ke layanan', undefined);
